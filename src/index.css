@@ -1,0 +1,135 @@
+@import "tailwindcss";
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #bebebe transparent;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="radio"] {
+  appearance: none;
+  position: relative;
+}
+
+input[type="radio"]:checked {
+  background-color: #014daf;
+  border: none;
+}
+
+input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: block;
+  background-color: #ffffff;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src:
+    url("../public/fonts/Satoshi-Variable.woff2") format("woff2"),
+    url("../public/fonts/Satoshi-Variable.woff") format("woff"),
+    url("../public/fonts/Satoshi-Variable.ttf") format("ttf");
+}
+
+@theme {
+  --font-satoshi:
+    "Satoshi", "system-ui", "-apple-system", "BlinkMacSystemFont", "Arial",
+    "sans-serif";
+  --shadow-success-modal: "0 20px 24px -4px 10182808, 0 8px 8px -4px #10182803";
+}
+
+.nav-link {
+  font-family: "Satoshi", sans-serif;
+  display: flex;
+  width: 206px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0 10px 12px;
+  font-size: 12px;
+  line-height: 18px;
+
+  transition:
+    transform 0.5s ease,
+    color 0.3s ease,
+    background-color 0.3s ease,
+    fill 0.3s ease,
+    stroke 0.3s ease;
+}
+
+.nav-link:hover {
+  transform: scale(1.03);
+}
+
+.date-text {
+  @apply font-satoshi text-[11px] text-[#121212];
+}
+
+.btn-animation-default {
+  @apply cursor-pointer transition-all duration-300 hover:scale-105;
+}
+
+.fee-btn-primary {
+  @apply font-satoshi cursor-pointer gap-2 rounded-[4px] bg-[#014daf] px-4.5 py-2.5 text-center text-base leading-6 font-bold text-white;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #014daf;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  animation: pulse 1s linear infinite;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border: 5px solid #014daf;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: scaleUp 1s linear infinite;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  60%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes pulse {
+  0%,
+  60%,
+  100% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1.2);
+  }
+}
